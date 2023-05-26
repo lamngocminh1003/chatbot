@@ -1,6 +1,6 @@
 require("dotenv").config();
 import request from "request";
-import chatbotService from "../services/chatbotService"
+import chatbotService from "../services/chatbotService";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
@@ -124,7 +124,9 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotService.handleGetStarted(sender_psid);
       break;
     default:
-      response = { text: `Oh no! i don't know response with postback ${payload}` };
+      response = {
+        text: `Oh no! i don't know response with postback ${payload}`,
+      };
   }
   // // Send the message to acknowledge the postback
   // callSendAPI(sender_psid, response);
@@ -183,9 +185,61 @@ let setupProfile = async (req, res) => {
   );
   return res.send("setup user profile succeed !");
 };
+
+let setupPersistentMenu = async (req, res) => {
+  // Construct the message body
+  let request_body = {
+    "persistent_menu": [
+      {
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+          {
+            "type": "web_url",
+            "title": "Website đặt lịch khám bệnh trực tuyến",
+            "url": "https://chatbot-i019.onrender.com/",
+            "webview_height_ratio": "full",
+          },
+          {
+            "type": "web_url",
+            "title": "Facebook đặt lịch khám bệnh trực tuyến",
+            "url": "https://www.facebook.com/%C4%90%E1%BA%B7t-l%E1%BB%8Bch-kh%C3%A1m-b%E1%BB%87nh-tr%E1%BB%B1c-tuy%E1%BA%BFn-114423351658634",
+            "webview_height_ratio": "full",
+          },
+          {
+            "type": "postback",
+            "title": "Khởi động lại Bot",
+            "payload": "RESTART_BOT",
+          },
+        ],
+      },
+    ],
+  };
+
+  // Send the HTTP request to the Messenger Platform
+  await request(
+    {
+      uri: `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      console.log(body);
+      if (!err) {
+        console.log("setup persistent menu succeed !");
+      } else {
+        console.error("Unable to setup persistent menu profile:" + err);
+      }
+    }
+  );
+  return res.send("setup user profile succeed !");
+};
+
 module.exports = {
   getHomePage: getHomePage,
   postWebhook: postWebhook,
   getWebhook: getWebhook,
   setupProfile: setupProfile,
+  setupPersistentMenu: setupPersistentMenu,
 };
