@@ -195,21 +195,22 @@ let setupPersistentMenu = async (req, res) => {
           "composer_input_disabled": false,
           "call_to_actions": [
               {
-                  "type": "postback",
-                  "title": "Talk to an agent",
-                  "payload": "CARE_HELP"
-              },
-              {
-                  "type": "postback",
-                  "title": "Outfit suggestions",
-                  "payload": "CURATION"
-              },
-              {
                   "type": "web_url",
-                  "title": "Shop now",
-                  "url": "https://www.originalcoastclothing.com/",
+                  "title": "Website đặt lịch khám bệnh trực tuyến",
+                  "url": "https://chatbot-i019.onrender.com/",
                   "webview_height_ratio": "full"
-              }
+              },
+              {
+                "type": "web_url",
+                "title": "Facebook đặt lịch khám bệnh trực tuyến",
+                "url": "https://www.facebook.com/%C4%90%E1%BA%B7t-l%E1%BB%8Bch-kh%C3%A1m-b%E1%BB%87nh-tr%E1%BB%B1c-tuy%E1%BA%BFn-114423351658634",
+                "webview_height_ratio": "full"
+              },
+              {
+                  "type": "postback",
+                  "title": "Khởi động lại bot",
+                  "payload": "RESTART_BOT"
+              },             
           ]
       }
   ]
