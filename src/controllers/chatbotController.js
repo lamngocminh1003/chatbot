@@ -203,7 +203,7 @@ let setupPersistentMenu = async (req, res) => {
               {
                 "type": "web_url",
                 "title": "Facebook đặt lịch khám bệnh trực tuyến",
-                "url": "https://www.facebook.com/profile.php?id=100027366979129",
+                "url": "https://github.com/lamngocminh1003",
                 "webview_height_ratio": "full"
               },
               {
