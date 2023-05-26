@@ -73,30 +73,30 @@ let handleGetStarted = (sender_psid)=>{
 
 let sendGetStartedTemplate =() =>{
     let response = {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "elements": [
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: [
               {
-                "title": "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến",
-                "subtitle": "Dưới đây là các lựa chọn của chúng tôi",
-                "image_url": IMAGE_GET_STARTED,
-                "buttons": [
+                title: "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến",
+                subtitle: "Dưới đây là các lựa chọn của chúng tôi",
+                image_url: IMAGE_GET_STARTED,
+                buttons: [
                   {
-                    "type": "postback",
-                    "title": "DANH SÁCH BÁC SĨ GIỎI",
-                    "payload": "DOCTORS_LIST",
+                    type: "postback",
+                    title: "DANH SÁCH BÁC SĨ GIỎI",
+                    payload: "DOCTORS_LIST",
                   },
                   {
-                    "type": "postback",
-                    "title": "ĐẶT LỊCH KHÁM",
-                    "payload": "BOOKING",
+                    type: "postback",
+                    title: "ĐẶT LỊCH KHÁM",
+                    payload: "BOOKING",
                   },
                   {
-                    "type": "postback",
-                    "title": "HƯỚNG DẪN SỬ DỤNG BOT",
-                    "payload": "GUIDE_TO_USE",
+                    type: "postback",
+                    title: "HƯỚNG DẪN SỬ DỤNG BOT",
+                    payload: "GUIDE_TO_USE",
                   },
                 ],
               },
