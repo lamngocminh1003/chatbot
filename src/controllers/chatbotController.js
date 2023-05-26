@@ -201,12 +201,6 @@ let setupPersistentMenu = async (req, res) => {
                   "webview_height_ratio": "full"
               },
               {
-                "type": "web_url",
-                "title": "Facebook đặt lịch khám bệnh trực tuyến",
-                "url": "https://github.com/lamngocminh1003",
-                "webview_height_ratio": "full"
-              },
-              {
                   "type": "postback",
                   "title": "Khởi động lại bot",
                   "payload": "RESTART_BOT"
