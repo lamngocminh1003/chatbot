@@ -198,7 +198,19 @@ let setupPersistentMenu = async (req, res) => {
                   "type": "postback",
                   "title": "Khởi động lại bot",
                   "payload": "RESTART_BOT"
-              },             
+              },
+              {
+                  "type": "web_url",
+                  "title": "Facebook BookingCare",
+                  "url": "https://www.facebook.com/%C4%90%E1%BA%B7t-l%E1%BB%8Bch-kh%C3%A1m-b%E1%BB%87nh-tr%E1%BB%B1c-tuy%E1%BA%BFn-114423351658634",
+                  "webview_height_ratio": "full"
+              },
+              {
+                  "type": "web_url",
+                  "title": "Website BookingCare",
+                  "url": "https://chatbot-i019.onrender.com/",
+                  "webview_height_ratio": "full"
+              }
           ]
       }
   ]
