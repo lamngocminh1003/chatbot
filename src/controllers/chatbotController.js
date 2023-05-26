@@ -170,7 +170,7 @@ let setupProfile = async (req, res) => {
   await request(
     {
       "uri": `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { access_token: PAGE_ACCESS_TOKEN },
+      "qs": { "access_token": PAGE_ACCESS_TOKEN },
       "method": "POST",
       "json": request_body,
     },
@@ -220,7 +220,7 @@ let setupPersistentMenu = async (req, res) => {
   await request(
     {
       "uri": `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { access_token: PAGE_ACCESS_TOKEN },
+      "qs": { "access_token": PAGE_ACCESS_TOKEN },
       "method": "POST",
       "json": request_body,
     },
