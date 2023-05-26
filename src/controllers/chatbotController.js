@@ -162,17 +162,17 @@ function callSendAPI(sender_psid, response) {
 let setupProfile = async (req, res) => {
   // Construct the message body
   let request_body = {
-    get_started: { payload: "GET_STARTED" },
-    whitelisted_domains: ["https://chatbot-i019.onrender.com/"],
+    "get_started": { payload: "GET_STARTED" },
+    "whitelisted_domains": ["https://chatbot-i019.onrender.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
   await request(
     {
-      uri: `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      qs: { access_token: PAGE_ACCESS_TOKEN },
-      method: "POST",
-      json: request_body,
+      "uri": `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      "qs": { access_token: PAGE_ACCESS_TOKEN },
+      "method": "POST",
+      "json": request_body,
     },
     (err, res, body) => {
       console.log(body);
@@ -233,7 +233,7 @@ let setupPersistentMenu = async (req, res) => {
       }
     }
   );
-  return res.send("setup user profile succeed !");
+  return res.send("setup persistent menu  succeed !");
 };
 
 module.exports = {
