@@ -162,7 +162,7 @@ function callSendAPI(sender_psid, response) {
 let setupProfile = async (req, res) => {
   // Construct the message body
   let request_body = {
-    "get_started": { payload: "GET_STARTED" },
+    "get_started": { "payload": "GET_STARTED" },
     "whitelisted_domains": ["https://chatbot-i019.onrender.com/"],
   };
 
