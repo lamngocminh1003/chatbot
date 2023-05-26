@@ -1,10 +1,10 @@
 require("dotenv").config();
-import  request  from "request";
+import request from "request";
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 let getHomePage = (req, res) => {
-  return res.send("xin chào mn");
+  return res.render("homepage.ejs");
 };
 let getWebhook = (req, res) => {
   // Parse the query params
@@ -61,60 +61,62 @@ let postWebhook = (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
   let response;
-  
+
   // Checks if the message contains text
-  if (received_message.text) {    
+  if (received_message.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-    }
+      text: `You sent the message: "${received_message.text}". Now send me an attachment!`,
+    };
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Đây có phải ảnh của bạn không?",
-            "subtitle": "Nhấn nút ở dưới để trả lời.",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Có!",
-                "payload": "yes",
-              },
-              {
-                "type": "postback",
-                "title": "Không!",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
-  } 
-  
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [
+            {
+              title: "Đây có phải ảnh của bạn không?",
+              subtitle: "Nhấn nút ở dưới để trả lời.",
+              image_url: attachment_url,
+              buttons: [
+                {
+                  type: "postback",
+                  title: "Có!",
+                  payload: "yes",
+                },
+                {
+                  type: "postback",
+                  title: "Không!",
+                  payload: "no",
+                },
+              ],
+            },
+          ],
+        },
+      },
+    };
+  }
+
   // Send the response message
-  callSendAPI(sender_psid, response);    
+  callSendAPI(sender_psid, response);
 }
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-  
+
   // Get the payload for the postback
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+  if (payload === "yes") {
+    response = { text: "Thanks!" };
+  } else if (payload === "no") {
+    response = { text: "Oops, try sending another image." };
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -122,31 +124,58 @@ function handlePostback(sender_psid, received_postback) {
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
-   // Construct the message body
-   let request_body = {
-    "recipient": {
-      "id": sender_psid
+  // Construct the message body
+  let request_body = {
+    recipient: {
+      id: sender_psid,
     },
-    "message": response
-  }
+    message: response,
+  };
 
   // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
+  request(
+    {
+      uri: "https://graph.facebook.com/v2.6/me/messages",
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      if (!err) {
+        console.log("message sent!");
+      } else {
+        console.error("Unable to send message:" + err);
+      }
     }
-  }); 
+  );
 }
+let setupProfile = (req, res) => {
+  // Construct the message body
+  let request_body = {
+    "get_started": "GET_STARTED",
+    "whitelisted_domains": "https://chatbot-i019.onrender.com/",
+  };
 
+  // Send the HTTP request to the Messenger Platform
+  request(
+    {
+      uri: `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      if (!err) {
+        console.log("setup user profile succeed !");
+      } else {
+        console.error("Unable to setup user profile:" + err);
+      }
+    }
+  );
+};
 module.exports = {
   getHomePage: getHomePage,
   postWebhook: postWebhook,
   getWebhook: getWebhook,
+  setupProfile: setupProfile,
 };
