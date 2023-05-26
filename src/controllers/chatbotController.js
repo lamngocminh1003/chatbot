@@ -1,5 +1,7 @@
 require("dotenv").config();
 import request from "request";
+import chatbotService from "../services/chatbotService"
+
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
@@ -59,7 +61,7 @@ let postWebhook = (req, res) => {
   }
 };
 
-function handleMessage(sender_psid, received_message) {
+async function handleMessage(sender_psid, received_message) {
   let response;
 
   // Checks if the message contains text
@@ -106,7 +108,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+async function handlePostback(sender_psid, received_postback) {
   let response;
 
   // Get the payload for the postback
@@ -119,13 +121,13 @@ function handlePostback(sender_psid, received_postback) {
       response = { text: "Oops, try sending another image." };
       break;
     case "GET_STARTED":
-      response = { text: "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến." };
+      await chatbotService.chatbotService();
       break;
     default:
       response = { text: `Oh no! i don't know response with postback ${payload}` };
   }
-  // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  // // Send the message to acknowledge the postback
+  // callSendAPI(sender_psid, response);
 }
 
 // Sends response messages via the Send API
