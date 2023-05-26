@@ -195,12 +195,6 @@ let setupPersistentMenu = async (req, res) => {
           "composer_input_disabled": false,
           "call_to_actions": [
               {
-                  "type": "web_url",
-                  "title": "Website đặt lịch khám bệnh trực tuyến",
-                  "url": "https://chatbot-i019.onrender.com/",
-                  "webview_height_ratio": "full"
-              },
-              {
                   "type": "postback",
                   "title": "Khởi động lại bot",
                   "payload": "RESTART_BOT"
