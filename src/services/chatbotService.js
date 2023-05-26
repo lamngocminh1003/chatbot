@@ -31,7 +31,7 @@ let callSendAPI = (sender_psid, response)=>{
 let handleGetStarted = (sender_psid)=>{
     return new Promise(async(resolve, reject)=>{
         try {
-            let response = { text: "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến." };
+            let response = { "text": "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến." };
             await callSendAPI(sender_psid, response)
             resolve('done')
         } catch (error) {
