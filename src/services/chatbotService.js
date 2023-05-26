@@ -1,7 +1,9 @@
 require("dotenv").config();
+import request from "request"
+
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-import request from "request"
+const IMAGE_GET_STARTED = 'https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg'
 let callSendAPI = (sender_psid, response)=>{
     // Construct the message body
   let request_body = {
@@ -55,16 +57,59 @@ let handleGetStarted = (sender_psid)=>{
     return new Promise(async(resolve, reject)=>{
         try {
             let username = await getUserName(sender_psid);
-            let response = { "text": `Xin chào ${username} đến với đặt lịch khám bệnh trực tuyến!` };
-            await callSendAPI(sender_psid, response)
+            let response1 = { "text": `Xin chào ${username} đến với đặt lịch khám bệnh trực tuyến!` };
+            let response2 = sendGetStartedTemplate();
+            //send text message
+            await callSendAPI(sender_psid, response1)
+            //send generic template message
+            await callSendAPI(sender_psid, response2)
+
             resolve('done')
         } catch (error) {
             reject(error)
         }
     })
 }
+
+let sendGetStartedTemplate =() =>{
+    let response = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [
+              {
+                "title": "Xin chào bạn đến với đặt lịch khám bệnh trực tuyến",
+                "subtitle": "Dưới đây là các lựa chọn của chúng tôi",
+                "image_url": IMAGE_GET_STARTED,
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "DANH SÁCH BÁC SĨ GIỎI",
+                    "payload": "DOCTORS_LIST",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "ĐẶT LỊCH KHÁM",
+                    "payload": "BOOKING",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "HƯỚNG DẪN SỬ DỤNG BOT",
+                    "payload": "GUIDE_TO_USE",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      };
+    return ``;
+}
+
 module.exports={
     callSendAPI:callSendAPI,
     handleGetStarted:handleGetStarted,
-    getUserName:getUserName
+    getUserName:getUserName,
+    sendGetStartedTemplate:sendGetStartedTemplate
 }
