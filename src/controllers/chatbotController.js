@@ -152,8 +152,8 @@ function callSendAPI(sender_psid, response) {
 let setupProfile = (req, res) => {
   // Construct the message body
   let request_body = {
-    "get_started": "GET_STARTED",
-    "whitelisted_domains": "https://chatbot-i019.onrender.com/",
+    "get_started": {"payload": "GET_STARTED"},
+    "whitelisted_domains": ["https://chatbot-i019.onrender.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
@@ -165,6 +165,7 @@ let setupProfile = (req, res) => {
       json: request_body,
     },
     (err, res, body) => {
+      console.log(body);
       if (!err) {
         console.log("setup user profile succeed !");
       } else {
