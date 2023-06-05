@@ -58,7 +58,7 @@ let handleGetStarted = (sender_psid)=>{
         try {
             let username = await getUserName(sender_psid);
             let response1 = { "text": `Xin chào ${username} đến với đặt lịch khám bệnh trực tuyến!` };
-            let response2 = sendGetStartedTemplate();
+            let response2 = getStartedTemplate();
             //send text message
             await callSendAPI(sender_psid, response1)
             //send generic template message
@@ -71,7 +71,7 @@ let handleGetStarted = (sender_psid)=>{
     })
 }
 
-let sendGetStartedTemplate =() =>{
+let getStartedTemplate =() =>{
     let response = {
         "attachment": {
           "type": "template",
@@ -106,10 +106,75 @@ let sendGetStartedTemplate =() =>{
       };
     return response;
 }
-
+let handleSendListDoctor =(sender_psid)=>{
+  return new Promise(async(resolve, reject)=>{
+    try {
+        let response1 = getListDoctorTemplate();
+        await callSendAPI(sender_psid, response1)
+        resolve('done')
+    } catch (error) {
+        reject(error)
+    }
+})
+}
+let getListDoctorTemplate =()=>{
+  let response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [
+          {
+            "title": "Danh sách phòng khám & bác sĩ uy tín và lành nghề",
+            "subtitle": "Chúng tôi hân hạnh mang đến cho bạn trải nghiệm khám bệnh một cách tuyệt vời",
+            "image_url": IMAGE_GET_STARTED,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "DANH SÁCH BÁC SĨ GIỎI",
+                "payload": "DOCTORS_LIST",
+              },
+              {
+                "type": "postback",
+                "title": "DANH SÁCH PHÒNG KHÁM UY TÍN",
+                "payload": "CLINICS_LIST",
+              }
+            ],
+          },
+          {
+            "title": "Các khung giờ khám bệnh",
+            "subtitle": "24/7",
+            "image_url": IMAGE_GET_STARTED,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "ĐẶT LỊCH KHÁM",
+                "payload": "BOOKING",
+              },
+            ],
+          },
+          {
+            "title": "Không gian các phòng khám",
+            "subtitle": "Các phòng khám đều có sức chứa lên đến 500 bệnh nhân và sở hữu đa dạng các chuyên khoa ",
+            "image_url": IMAGE_GET_STARTED,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "CHI TIẾT PHÒNG KHÁM",
+                "payload": "SHOW_CLINICS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+return response;
+}
 module.exports={
     callSendAPI:callSendAPI,
     handleGetStarted:handleGetStarted,
     getUserName:getUserName,
-    sendGetStartedTemplate:sendGetStartedTemplate
+    getStartedTemplate:getStartedTemplate,
+    handleSendListDoctor:handleSendListDoctor
 }
