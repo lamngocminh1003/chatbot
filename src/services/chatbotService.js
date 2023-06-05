@@ -6,7 +6,7 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const IMAGE_GET_STARTED = 'https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg'
 const IMAGE_LIST_DOCTORS = 'https://cdn.bookingcare.vn/fr/w300/2020/12/09/100650-doctor-57101521920.jpg'
 const HOURS_OPEN = 'https://cdn.bookingcare.vn/fr/w300/2020/07/17/085420-dia-chi-kham-san-phu-khoa-ha-noi.jpg'
-const BACKGROUND_CLINIC = 'https://images2.thanhnien.vn/Uploaded/hongky-qc/2022_06_24/image1-2004.jpeg'
+const BACKGROUND_CLINIC = 'https://images2.thanhnien.vn/Uploaded/hongky-qc/2022_06_24/image2-6316.jpeg'
 let callSendAPI = (sender_psid, response)=>{
     // Construct the message body
   let request_body = {
