@@ -127,6 +127,17 @@ async function handlePostback(sender_psid, received_postback) {
     case "GET_STARTED":
       await chatbotService.handleGetStarted(sender_psid);
       break;
+    case "SPECIALTIES_LIST":
+      await chatbotService.handleSendSpecialtiesList(sender_psid);
+      break;
+    case "CLINICS_LIST":
+      await chatbotService.handleSendClinicsList(sender_psid);
+      break;
+    case VIEW_NEUROLOGY:
+    case VIEW_GASTROINTESTINAL:
+    case VIEW_EAR_NOSE_THROAT:
+    case VIEW_MUSCULOSKELETAL:
+    case VIEW_CARDIOLOGY:
     default:
       response = {
         text: `Oh no! i don't know response with postback ${payload}`,
@@ -166,17 +177,17 @@ function callSendAPI(sender_psid, response) {
 let setupProfile = async (req, res) => {
   // Construct the message body
   let request_body = {
-    "get_started": { "payload": "GET_STARTED" },
-    "whitelisted_domains": ["https://chatbot-i019.onrender.com/"],
+    get_started: { payload: "GET_STARTED" },
+    whitelisted_domains: ["https://chatbot-i019.onrender.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
   await request(
     {
-      "uri": `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { "access_token": PAGE_ACCESS_TOKEN },
-      "method": "POST",
-      "json": request_body,
+      uri: `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
     },
     (err, res, body) => {
       console.log(body);
@@ -193,40 +204,40 @@ let setupProfile = async (req, res) => {
 let setupPersistentMenu = async (req, res) => {
   // Construct the message body
   let request_body = {
-    "persistent_menu": [
+    persistent_menu: [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-              {
-                  "type": "postback",
-                  "title": "Khởi động lại bot",
-                  "payload": "RESTART_BOT"
-              },
-              {
-                  "type": "web_url",
-                  "title": "Facebook BookingCare",
-                  "url": "https://www.facebook.com/%C4%90%E1%BA%B7t-l%E1%BB%8Bch-kh%C3%A1m-b%E1%BB%87nh-tr%E1%BB%B1c-tuy%E1%BA%BFn-114423351658634",
-                  "webview_height_ratio": "full"
-              },
-              {
-                  "type": "web_url",
-                  "title": "Website BookingCare",
-                  "url": "https://chatbot-i019.onrender.com/",
-                  "webview_height_ratio": "full"
-              }
-          ]
-      }
-  ]
+        locale: "default",
+        composer_input_disabled: false,
+        call_to_actions: [
+          {
+            type: "postback",
+            title: "Khởi động lại bot",
+            payload: "RESTART_BOT",
+          },
+          {
+            type: "web_url",
+            title: "Facebook BookingCare",
+            url: "https://www.facebook.com/%C4%90%E1%BA%B7t-l%E1%BB%8Bch-kh%C3%A1m-b%E1%BB%87nh-tr%E1%BB%B1c-tuy%E1%BA%BFn-114423351658634",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "web_url",
+            title: "Website BookingCare",
+            url: "https://chatbot-i019.onrender.com/",
+            webview_height_ratio: "full",
+          },
+        ],
+      },
+    ],
   };
 
   // Send the HTTP request to the Messenger Platform
   await request(
     {
-      "uri": `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { "access_token": PAGE_ACCESS_TOKEN },
-      "method": "POST",
-      "json": request_body,
+      uri: `https://graph.facebook.com/v17.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
     },
     (err, res, body) => {
       console.log(body);
