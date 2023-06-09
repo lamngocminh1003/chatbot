@@ -275,6 +275,18 @@ let getSpecialtiesListTemplate = () => {
               },
             ],
           },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
         ],
       },
     },

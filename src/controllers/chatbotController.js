@@ -133,11 +133,12 @@ async function handlePostback(sender_psid, received_postback) {
     case "CLINICS_LIST":
       await chatbotService.handleSendClinicsList(sender_psid);
       break;
-    case VIEW_NEUROLOGY:
-    case VIEW_GASTROINTESTINAL:
-    case VIEW_EAR_NOSE_THROAT:
-    case VIEW_MUSCULOSKELETAL:
-    case VIEW_CARDIOLOGY:
+    case "VIEW_NEUROLOGY":
+    case "VIEW_GASTROINTESTINAL":
+    case "VIEW_EAR_NOSE_THROAT":
+    case "VIEW_MUSCULOSKELETAL":
+    case "VIEW_CARDIOLOGY":
+    case "BACK_TO_LIST_DOCTORS":
     default:
       response = {
         text: `Oh no! i don't know response with postback ${payload}`,
