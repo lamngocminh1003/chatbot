@@ -360,6 +360,9 @@ let getClinicsListTemplate = () => {
   };
   return response;
 };
+let handleBackToDoctorsList = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
 module.exports = {
   callSendAPI: callSendAPI,
   handleGetStarted: handleGetStarted,
@@ -368,4 +371,5 @@ module.exports = {
   handleSendListDoctor: handleSendListDoctor,
   handleSendSpecialtiesList: handleSendSpecialtiesList,
   handleSendClinicsList: handleSendClinicsList,
+  handleBackToDoctorsList: handleBackToDoctorsList,
 };
