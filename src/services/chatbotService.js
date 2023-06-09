@@ -21,6 +21,16 @@ const IMAGE_MUSCULOSKELETAL =
   "https://cdn.bookingcare.vn/fr/w300/2019/12/13/120331-co-xuong-khop.jpg";
 const IMAGE_CARDIOLOGY =
   "https://cdn.bookingcare.vn/fr/w300/2019/12/13/120741-tim-mach.jpg";
+const IMAGE_CHO_RAY =
+  "https://cdn.bookingcare.vn/fr/w500/2019/03/11/152704logo-bvcr-moi.jpg";
+const IMAGE_MEDLATEC =
+  "https://cdn.bookingcare.vn/fr/w500/2022/08/29/104922-logo-med-tai-ha-noi--01.png";
+const IMAGE_THU_CUC =
+  "https://cdn.bookingcare.vn/fr/w500/2021/04/07/103904-logo-thucuc.png";
+const IMAGE_EXSON =
+  "https://cdn.bookingcare.vn/fr/w500/2018/12/12/112054logo-phong-kham-da-khoa-quoc-te-exson1.jpg";
+const IMAGE_AN_VIET =
+  "https://cdn.bookingcare.vn/fr/w500/2020/02/18/170749-benh-vien-an-viet.jpg";
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
   let request_body = {
@@ -312,45 +322,78 @@ let getClinicsListTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "Danh sách phòng khám & bác sĩ uy tín và lành nghề",
+            title: "Bệnh viện Chợ Rẫy",
             subtitle:
-              "Chúng tôi hân hạnh mang đến cho bạn trải nghiệm khám bệnh một cách tuyệt vời",
+              "Bệnh viện Chợ Rẫy với lịch sử thành lập trên 100 năm, là bệnh viện hạng đặc biệt tuyến Trung ương lớn nhất cả nước với trên 1.800 giường và trên 3.000 kỹ thuật y tế được thực hiện.",
+            image_url: IMAGE_CHO_RAY,
+            buttons: [
+              {
+                type: "postback",
+                title: "Xem chi tiết",
+                payload: "VIEW_DETAIL_CHO_RAY",
+              },
+            ],
+          },
+          {
+            title: "Hệ thống y tế MEDLATEC ",
+            subtitle: "Đội ngũ bác sĩ giàu kinh nghiệm",
+            image_url: IMAGE_MEDLATEC,
+            buttons: [
+              {
+                type: "postback",
+                title: "Xem chi tiết",
+                payload: "VIEW_DETAIL_MEDLATEC",
+              },
+            ],
+          },
+          {
+            title: "Hệ thống Y tế Thu Cúc TCI",
+            subtitle:
+              "Hệ thống Y tế Thu Cúc TCI tự hào là đơn vị y tế được hàng triệu người dân tin tưởng và Sở Y tế công nhận",
+            image_url: IMAGE_THU_CUC,
+            buttons: [
+              {
+                type: "postback",
+                title: "Xem chi tiết",
+                payload: "VIEW_DETAIL_THU_CUC",
+              },
+            ],
+          },
+          {
+            title: "Bệnh viện Đa khoa An Việt",
+            subtitle:
+              "Bệnh viện An Việt là bệnh viện đa khoa tư nhân đã hoạt động được trên 10 năm.",
+            image_url: IMAGE_AN_VIET,
+            buttons: [
+              {
+                type: "postback",
+                title: "Xem chi tiết",
+                payload: "VIEW_DETAIL_AN_VIET",
+              },
+            ],
+          },
+          {
+            title: "Phòng khám Quốc tế EXSON",
+            subtitle:
+              "Phòng khám Quốc tế EXSON là phòng khám đa khoa tư nhân chuyên sâu về điều trị các bệnh lý cột sống và tủy sống.",
+            image_url: IMAGE_EXSON,
+            buttons: [
+              {
+                type: "postback",
+                title: "Xem chi tiết",
+                payload: "VIEW_DETAIL_EXSON",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
             image_url: IMAGE_LIST_DOCTORS,
             buttons: [
               {
                 type: "postback",
-                title: "DANH SÁCH BÁC SĨ GIỎI",
-                payload: "DOCTORS_LIST",
-              },
-              {
-                type: "postback",
-                title: "DANH SÁCH PHÒNG KHÁM UY TÍN",
-                payload: "CLINICS_LIST",
-              },
-            ],
-          },
-          {
-            title: "Các khung giờ khám bệnh",
-            subtitle: "24/7",
-            image_url: HOURS_OPEN,
-            buttons: [
-              {
-                type: "postback",
-                title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
-              },
-            ],
-          },
-          {
-            title: "Không gian các phòng khám",
-            subtitle:
-              "Các phòng khám đều có sức chứa lên đến 500 bệnh nhân và sở hữu đa dạng các chuyên khoa ",
-            image_url: BACKGROUND_CLINIC,
-            buttons: [
-              {
-                type: "postback",
-                title: "CHI TIẾT PHÒNG KHÁM",
-                payload: "SHOW_CLINICS",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
               },
             ],
           },
@@ -363,6 +406,21 @@ let getClinicsListTemplate = () => {
 let handleBackToDoctorsList = async (sender_psid) => {
   await handleSendListDoctor(sender_psid);
 };
+let handleDetailViewCardiology = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
+let handleDetailViewMusculoskeletal = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
+let handleDetailViewEarNoseThroat = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
+let handleDetailViewGastrointestinal = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
+let handleDetailViewNeurology = async (sender_psid) => {
+  await handleSendListDoctor(sender_psid);
+};
 module.exports = {
   callSendAPI: callSendAPI,
   handleGetStarted: handleGetStarted,
@@ -372,4 +430,9 @@ module.exports = {
   handleSendSpecialtiesList: handleSendSpecialtiesList,
   handleSendClinicsList: handleSendClinicsList,
   handleBackToDoctorsList: handleBackToDoctorsList,
+  handleDetailViewCardiology: handleDetailViewCardiology,
+  handleDetailViewMusculoskeletal: handleDetailViewMusculoskeletal,
+  handleDetailViewEarNoseThroat: handleDetailViewEarNoseThroat,
+  handleDetailViewGastrointestinal: handleDetailViewGastrointestinal,
+  handleDetailViewNeurology: handleDetailViewNeurology,
 };

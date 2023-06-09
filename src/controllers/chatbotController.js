@@ -134,10 +134,20 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotService.handleSendClinicsList(sender_psid);
       break;
     case "VIEW_NEUROLOGY":
+      await chatbotService.handleDetailViewNeurology(sender_psid);
+      break;
     case "VIEW_GASTROINTESTINAL":
+      await chatbotService.handleDetailViewGastrointestinal(sender_psid);
+      break;
     case "VIEW_EAR_NOSE_THROAT":
+      await chatbotService.handleDetailViewEarNoseThroat(sender_psid);
+      break;
     case "VIEW_MUSCULOSKELETAL":
+      await chatbotService.handleDetailViewMusculoskeletal(sender_psid);
+      break;
     case "VIEW_CARDIOLOGY":
+      await chatbotService.handleDetailViewCardiology(sender_psid);
+      break;
     case "BACK_TO_LIST_DOCTORS":
       await chatbotService.handleBackToDoctorsList(sender_psid);
       break;
