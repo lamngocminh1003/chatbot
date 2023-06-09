@@ -262,19 +262,6 @@ let getSpecialtiesListTemplate = () => {
               },
             ],
           },
-          {
-            title: "Chuyên khoa tim mạch",
-            subtitle:
-              "Sở hữu danh sách các bác sĩ tim mạch uy tín đầu ngành tại Việt Nam",
-            image_url: IMAGE_CARDIOLOGY,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_CARDIOLOGY",
-              },
-            ],
-          },
         ],
       },
     },
