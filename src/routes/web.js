@@ -1,20 +1,20 @@
-import express  from "express";
+import express from "express";
 import chatbotController from "../controllers/chatbotController";
 let router = express.Router();
-let initWebRoutes =(app)=>{
-    router.get("/",chatbotController.getHomePage)
-    //setup get started buttons, whitelisted domain
-    router.post("/setup-profile",chatbotController.setupProfile)
+let initWebRoutes = (app) => {
+  router.get("/", chatbotController.getHomePage);
+  //setup get started buttons, whitelisted domain
+  router.post("/setup-profile", chatbotController.setupProfile);
 
-    //setup persistent menu
-    router.post("/setup-persistent-menu",chatbotController.setupPersistentMenu)
-    
-    
-    router.get("/webhook",chatbotController.getWebhook)
-    router.post("/webhook",chatbotController.postWebhook)
+  //setup persistent menu
+  router.post("/setup-persistent-menu", chatbotController.setupPersistentMenu);
 
-    router.get("/booking",chatbotController.handelBooking)
+  router.get("/webhook", chatbotController.getWebhook);
+  router.post("/webhook", chatbotController.postWebhook);
 
-    return app.use("/", router);
+  router.get("/booking", chatbotController.handelBooking);
+  router.post("/reserve-table-ajax", chatbotController.handelPostBooking);
+
+  return app.use("/", router);
 };
 module.exports = initWebRoutes;

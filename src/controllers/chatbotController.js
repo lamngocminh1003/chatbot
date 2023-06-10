@@ -283,6 +283,39 @@ let setupPersistentMenu = async (req, res) => {
 let handelBooking = (req, res) => {
   return res.render("booking.ejs");
 };
+let handelPostBooking = async (req, res) => {
+  try {
+    let customerName = "";
+    if (req.body.customerName === "") {
+      customerName = "Empty";
+    } else customerName = req.body.customerName;
+    let customerAddress = "";
+    if (req.body.customerAddress === "") {
+      customerAddress = "Empty";
+    } else customerAddress = req.body.customerAddress;
+    let customerReason = "";
+    if (req.body.customerReason === "") {
+      customerReason = "Empty";
+    } else customerReason = req.body.customerReason;
+    let response1 = {
+      text: `---Thông tin bệnh nhận đặt lịch khám bệnh ---
+      \nCustomer Name: ${customerName}
+      \nCustomer Reason: ${customerReason}
+      \nCustomerAddress: ${customerAddress}
+      \nEmail: ${req.body.email}
+      \nPhone: ${req.body.phoneNumber}`,
+    };
+    await chatbotService.callSendAPI(req.body.psid, response1);
+    return res.status(200).json({
+      message: "ok",
+    });
+  } catch (error) {
+    console.log("lỗi post reserve table", error);
+    return res.status(500).json({
+      message: "Server error: ",
+    });
+  }
+};
 module.exports = {
   getHomePage: getHomePage,
   postWebhook: postWebhook,
@@ -290,4 +323,5 @@ module.exports = {
   setupProfile: setupProfile,
   setupPersistentMenu: setupPersistentMenu,
   handelBooking: handelBooking,
+  handelPostBooking: handelPostBooking,
 };

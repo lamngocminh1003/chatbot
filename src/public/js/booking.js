@@ -14,7 +14,7 @@ window.extAsyncInit = function () {
   // the Messenger Extensions JS SDK is done loading
 
   MessengerExtensions.getContext(
-    "753933095237424",
+    "101750909607466",
     function success(thread_context) {
       // success
       //set psid to input
@@ -23,7 +23,7 @@ window.extAsyncInit = function () {
     },
     function error(err) {
       // error
-      console.log("Lỗi đặt bàn Eric bot", err);
+      console.log("Lỗi đặt lịch khám bệnh bot", err);
     }
   );
 };
