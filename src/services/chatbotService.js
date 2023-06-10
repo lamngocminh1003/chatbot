@@ -60,7 +60,7 @@ const IMAGE_DOCTOR14 =
   "https://cdn.bookingcare.vn/fr/w200/2020/01/03/084302-pgs-nguyen-trong-hung.jpg";
 const IMAGE_DOCTOR15 =
   "https://cdn.bookingcare.vn/fr/w200/2022/07/29/181442-6f0641e81e0ddc53851c.jpg";
-let callSendAPI = (sender_psid, response) => {
+let callSendAPI = async (sender_psid, response) => {
   // Construct the message body
   let request_body = {
     recipient: {
@@ -68,7 +68,8 @@ let callSendAPI = (sender_psid, response) => {
     },
     message: response,
   };
-
+  await sendTypingOn(sender_psid);
+  await sendMarkReadMessage(sender_psid);
   // Send the HTTP request to the Messenger Platform
   request(
     {
@@ -86,7 +87,58 @@ let callSendAPI = (sender_psid, response) => {
     }
   );
 };
+let sendTypingOn = (sender_psid) => {
+  // Construct the message body
+  let request_body = {
+    recipient: {
+      id: sender_psid,
+    },
+    sender_action: "typing_on",
+  };
 
+  // Send the HTTP request to the Messenger Platform
+  request(
+    {
+      uri: "https://graph.facebook.com/v9.0/me/messages",
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      if (!err) {
+        console.log("sendTypingOn sent!");
+      } else {
+        console.error("Unable to send sendTypingOn:" + err);
+      }
+    }
+  );
+};
+let sendMarkReadMessage = (sender_psid) => {
+  // Construct the message body
+  let request_body = {
+    recipient: {
+      id: sender_psid,
+    },
+    sender_action: "mark_seen",
+  };
+
+  // Send the HTTP request to the Messenger Platform
+  request(
+    {
+      uri: "https://graph.facebook.com/v9.0/me/messages",
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      if (!err) {
+        console.log("sendMarkReadMessage sent!");
+      } else {
+        console.error("Unable to send sendMarkReadMessage:" + err);
+      }
+    }
+  );
+};
 let getUserName = (sender_psid) => {
   // Send the HTTP request to the Messenger Platform
   return new Promise((resolve, reject) => {
