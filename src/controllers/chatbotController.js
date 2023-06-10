@@ -165,6 +165,9 @@ async function handlePostback(sender_psid, received_postback) {
     case "VIEW_DETAIL_CHO_RAY":
       await chatbotService.handleDetailViewChoRay(sender_psid);
       break;
+    case "SHOW_CLINICS":
+      await chatbotService.handleSendClinicsList(sender_psid);
+      break;
     default:
       response = {
         text: `Oh no! i don't know response with postback ${payload}`,
