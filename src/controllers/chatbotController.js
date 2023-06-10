@@ -1,7 +1,6 @@
 require("dotenv").config();
 import request from "request";
 import chatbotService from "../services/chatbotService";
-
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
@@ -150,6 +149,21 @@ async function handlePostback(sender_psid, received_postback) {
       break;
     case "BACK_TO_LIST_DOCTORS":
       await chatbotService.handleBackToDoctorsList(sender_psid);
+      break;
+    case "VIEW_DETAIL_EXSON":
+      await chatbotService.handleDetailViewExson(sender_psid);
+      break;
+    case "VIEW_DETAIL_AN_VIET":
+      await chatbotService.handleDetailViewAnViet(sender_psid);
+      break;
+    case "VIEW_DETAIL_THU_CUC":
+      await chatbotService.handleDetailViewThuCuc(sender_psid);
+      break;
+    case "VIEW_DETAIL_MEDLATEC":
+      await chatbotService.handleDetailViewMedlatec(sender_psid);
+      break;
+    case "VIEW_DETAIL_CHO_RAY":
+      await chatbotService.handleDetailViewChoRay(sender_psid);
       break;
     default:
       response = {

@@ -2,7 +2,6 @@ require("dotenv").config();
 import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const IMAGE_GET_STARTED =
   "https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg";
 const IMAGE_LIST_DOCTORS =
@@ -31,6 +30,36 @@ const IMAGE_EXSON =
   "https://cdn.bookingcare.vn/fr/w500/2018/12/12/112054logo-phong-kham-da-khoa-quoc-te-exson1.jpg";
 const IMAGE_AN_VIET =
   "https://cdn.bookingcare.vn/fr/w500/2020/02/18/170749-benh-vien-an-viet.jpg";
+const IMAGE_DOCTOR1 =
+  "https://cdn.bookingcare.vn/fr/w200/2022/05/05/104945-nguyen-van-quynh-pgs.jpg";
+const IMAGE_DOCTOR2 =
+  "https://cdn.bookingcare.vn/fr/w200/2019/12/31/160952-pgs-nguyen-ngoc-tuoc.jpg";
+const IMAGE_DOCTOR3 =
+  "https://cdn.bookingcare.vn/fr/w200/2022/12/08/092836-bsi-hang-hong-ngoc.png";
+const IMAGE_DOCTOR4 =
+  "https://cdn.bookingcare.vn/fr/w200/2017/12/22/155419nguyen-thi-kim-loan.jpg";
+const IMAGE_DOCTOR5 =
+  "https://cdn.bookingcare.vn/fr/w200/2019/12/31/161632-pgs-nguyen-vinh-ngoc.jpg";
+const IMAGE_DOCTOR6 =
+  "https://cdn.bookingcare.vn/fr/w200/2022/09/21/110559-bs-kim-dung.jpg";
+const IMAGE_DOCTOR7 =
+  "https://cdn.bookingcare.vn/fr/w200/2020/01/03/090559-pgs-nguyen-thi-hoai-an.jpg";
+const IMAGE_DOCTOR8 =
+  "https://cdn.bookingcare.vn/fr/w200/2021/06/26/121515-bs-nguyen-van-ly.jpg";
+const IMAGE_DOCTOR9 =
+  "https://cdn.bookingcare.vn/fr/w200/2019/06/25/165749bs-nguyen-ngoc-phan.jpg";
+const IMAGE_DOCTOR10 =
+  "https://cdn.bookingcare.vn/fr/w200/2019/12/31/155650-gs-ha-van-quyet.jpg";
+const IMAGE_DOCTOR11 =
+  "https://cdn.bookingcare.vn/fr/w200/2020/01/03/084535-bsckii-le-tuyet-anh.jpg";
+const IMAGE_DOCTOR12 =
+  "https://cdn.bookingcare.vn/fr/w200/2019/10/03/105755bs-bui-minh-ha.jpg";
+const IMAGE_DOCTOR13 =
+  "https://cdn.bookingcare.vn/fr/w200/2017/12/23/170155nguyen-van-doanh.jpg";
+const IMAGE_DOCTOR14 =
+  "https://cdn.bookingcare.vn/fr/w200/2020/01/03/084302-pgs-nguyen-trong-hung.jpg";
+const IMAGE_DOCTOR15 =
+  "https://cdn.bookingcare.vn/fr/w200/2022/07/29/181442-6f0641e81e0ddc53851c.jpg";
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
   let request_body = {
@@ -407,19 +436,750 @@ let handleBackToDoctorsList = async (sender_psid) => {
   await handleSendListDoctor(sender_psid);
 };
 let handleDetailViewCardiology = async (sender_psid) => {
-  await handleSendListDoctor(sender_psid);
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewCardiology();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewCardiology = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Phó giáo sư Nguyễn Văn Quýnh",
+            subtitle:
+              "Chuyên gia hàng đầu về nội tim mạch với hơn 30 năm kinh nghiệm",
+            image_url: IMAGE_DOCTOR1,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "PGs.Ts Nguyễn Ngọc Tước",
+            subtitle: "Chuyên gia đầu ngành về bệnh lý Nội tim mạch",
+            image_url: IMAGE_DOCTOR2,
+            buttons: [
+              {
+                type: "postback",
+                title: "ĐẶT LỊCH KHÁM",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Lê Thị Thanh Hằng",
+            subtitle: "Gần 40 năm kinh nghiệm trong lĩnh vực Tim mạch",
+            image_url: IMAGE_DOCTOR3,
+            buttons: [
+              {
+                type: "postback",
+                title: "ĐẶT LỊCH KHÁM",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 let handleDetailViewMusculoskeletal = async (sender_psid) => {
-  await handleSendListDoctor(sender_psid);
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewMusculoskeletal();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewMusculoskeletal = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Nguyễn Thị Kim Loan",
+            subtitle: "Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện E Hà Nội",
+            image_url: IMAGE_DOCTOR4,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Vĩnh Ngọc",
+            subtitle: "Trưởng phân môn khớp, Đại học Y Hà Nội",
+            image_url: IMAGE_DOCTOR5,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Võ Thị Kim Dung",
+            subtitle:
+              "Hơn 30 năm kinh nghiệm khám và điều trị chuyên khoa Nội Cơ xương khớp",
+            image_url: IMAGE_DOCTOR6,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 let handleDetailViewEarNoseThroat = async (sender_psid) => {
-  await handleSendListDoctor(sender_psid);
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewEarNoseThroat();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewEarNoseThroat = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Nguyễn Thị Hoài An",
+            subtitle: "Nguyên Trưởng khoa Tai mũi họng trẻ em",
+            image_url: IMAGE_DOCTOR7,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Văn Lý",
+            subtitle: "Nguyên Trưởng khoa Tai mũi họng",
+            image_url: IMAGE_DOCTOR8,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Ngọc Phấn",
+            subtitle: "Nguyên bác sĩ Tai Mũi Họng Bệnh viện Đa khoa Hồng Ngọc",
+            image_url: IMAGE_DOCTOR9,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 let handleDetailViewGastrointestinal = async (sender_psid) => {
-  await handleSendListDoctor(sender_psid);
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewGastrointestinal();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewGastrointestinal = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Giáo sư, Tiến sĩ Hà Văn Quyết",
+            subtitle:
+              "Chuyên gia trên 35 năm kinh nghiệm trong lĩnh vực bệnh lý Tiêu hóa",
+            image_url: IMAGE_DOCTOR10,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Lê Tuyết Anh",
+            subtitle:
+              "Nguyên bác sĩ Chuyên khoa II chuyên ngành Tiêu hóa, Bệnh viện Bạch Mai",
+            image_url: IMAGE_DOCTOR11,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Chuyên khoa I Bùi Minh Hà",
+            subtitle: "Bác sĩ Chuyên khoa Nội Tiêu hóa",
+            image_url: IMAGE_DOCTOR12,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 let handleDetailViewNeurology = async (sender_psid) => {
-  await handleSendListDoctor(sender_psid);
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewNeurology();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewNeurology = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Tiến sĩ, Bác sĩ Nguyễn Văn Doanh",
+            subtitle:
+              "Bác sĩ có 40 năm kinh nghiệm làm việc chuyên khoa Nội Thần kinh",
+            image_url: IMAGE_DOCTOR13,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Trọng Hưng",
+            subtitle:
+              "Nguyên Trưởng khoa Tâm Thần kinh - Bệnh viện Lão Khoa Trung ương - Nguyên Bác sỹ Khoa Thần kinh - Bệnh viện Bạch Mai",
+            image_url: IMAGE_DOCTOR14,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Tiến sĩ Kiều Đình Hùng",
+            subtitle:
+              "Trên 20 năm kinh nghiệm công tác ở khoa Phẫu thuật thần kinh - Bệnh viện Việt Đức",
+            image_url: IMAGE_DOCTOR15,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+let handleDetailViewChoRay = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewChoRay();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewChoRay = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Nguyễn Thị Hoài An",
+            subtitle: "Nguyên Trưởng khoa Tai mũi họng trẻ em",
+            image_url: IMAGE_DOCTOR7,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Giáo sư, Tiến sĩ Hà Văn Quyết",
+            subtitle:
+              "Chuyên gia trên 35 năm kinh nghiệm trong lĩnh vực bệnh lý Tiêu hóa",
+            image_url: IMAGE_DOCTOR10,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Tiến sĩ, Bác sĩ Nguyễn Văn Doanh",
+            subtitle:
+              "Bác sĩ có 40 năm kinh nghiệm làm việc chuyên khoa Nội Thần kinh",
+            image_url: IMAGE_DOCTOR13,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+let handleDetailViewMedlatec = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewMedlatec();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewMedlatec = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Nguyễn Văn Lý",
+            subtitle: "Nguyên Trưởng khoa Tai mũi họng",
+            image_url: IMAGE_DOCTOR8,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Lê Tuyết Anh",
+            subtitle:
+              "Nguyên bác sĩ Chuyên khoa II chuyên ngành Tiêu hóa, Bệnh viện Bạch Mai",
+            image_url: IMAGE_DOCTOR11,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Trọng Hưng",
+            subtitle:
+              "Nguyên Trưởng khoa Tâm Thần kinh - Bệnh viện Lão Khoa Trung ương - Nguyên Bác sỹ Khoa Thần kinh - Bệnh viện Bạch Mai",
+            image_url: IMAGE_DOCTOR14,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+let handleDetailViewThuCuc = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewThuCuc();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewThuCuc = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Nguyễn Ngọc Phấn",
+            subtitle: "Nguyên bác sĩ Tai Mũi Họng Bệnh viện Đa khoa Hồng Ngọc",
+            image_url: IMAGE_DOCTOR9,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Chuyên khoa I Bùi Minh Hà",
+            subtitle: "Bác sĩ Chuyên khoa Nội Tiêu hóa",
+            image_url: IMAGE_DOCTOR12,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Tiến sĩ Kiều Đình Hùng",
+            subtitle:
+              "Trên 20 năm kinh nghiệm công tác ở khoa Phẫu thuật thần kinh - Bệnh viện Việt Đức",
+            image_url: IMAGE_DOCTOR15,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+let handleDetailViewAnViet = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewAnViet();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewAnViet = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Phó giáo sư Nguyễn Văn Quýnh",
+            subtitle:
+              "Chuyên gia hàng đầu về nội tim mạch với hơn 30 năm kinh nghiệm",
+            image_url: IMAGE_DOCTOR1,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Thị Kim Loan",
+            subtitle: "Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện E Hà Nội",
+            image_url: IMAGE_DOCTOR4,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Ngọc Phấn",
+            subtitle: "Nguyên bác sĩ Tai Mũi Họng Bệnh viện Đa khoa Hồng Ngọc",
+            image_url: IMAGE_DOCTOR9,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
+let handleDetailViewExson = async (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = getDetailViewExson();
+      await callSendAPI(sender_psid, response1);
+      resolve("done");
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getDetailViewExson = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Bác sĩ Võ Thị Kim Dung",
+            subtitle:
+              "Hơn 30 năm kinh nghiệm khám và điều trị chuyên khoa Nội Cơ xương khớp",
+            image_url: IMAGE_DOCTOR6,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Lê Thị Thanh Hằng",
+            subtitle: "Gần 40 năm kinh nghiệm trong lĩnh vực Tim mạch",
+            image_url: IMAGE_DOCTOR3,
+            buttons: [
+              {
+                type: "postback",
+                title: "ĐẶT LỊCH KHÁM",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "PGs.Ts Nguyễn Ngọc Tước",
+            subtitle: "Chuyên gia đầu ngành về bệnh lý Nội tim mạch",
+            image_url: IMAGE_DOCTOR2,
+            buttons: [
+              {
+                type: "postback",
+                title: "ĐẶT LỊCH KHÁM",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Bác sĩ Nguyễn Vĩnh Ngọc",
+            subtitle: "Trưởng phân môn khớp, Đại học Y Hà Nội",
+            image_url: IMAGE_DOCTOR5,
+            buttons: [
+              {
+                type: "postback",
+                title: "Đặt lịch khám",
+                payload: "BOOKING",
+              },
+            ],
+          },
+          {
+            title: "Quay trở lại",
+            subtitle: "Quay trở lại danh sách bác sĩ",
+            image_url: IMAGE_LIST_DOCTORS,
+            buttons: [
+              {
+                type: "postback",
+                title: "QUAY TRỞ LẠI",
+                payload: "BACK_TO_LIST_DOCTORS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 module.exports = {
   callSendAPI: callSendAPI,
@@ -435,4 +1195,9 @@ module.exports = {
   handleDetailViewEarNoseThroat: handleDetailViewEarNoseThroat,
   handleDetailViewGastrointestinal: handleDetailViewGastrointestinal,
   handleDetailViewNeurology: handleDetailViewNeurology,
+  handleDetailViewMedlatec: handleDetailViewMedlatec,
+  handleDetailViewThuCuc: handleDetailViewThuCuc,
+  handleDetailViewAnViet: handleDetailViewAnViet,
+  handleDetailViewExson: handleDetailViewExson,
+  handleDetailViewChoRay: handleDetailViewChoRay,
 };
