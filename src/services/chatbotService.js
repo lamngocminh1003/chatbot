@@ -199,9 +199,11 @@ let getStartedTemplate = () => {
                 payload: "DOCTORS_LIST",
               },
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
               {
                 type: "postback",
@@ -258,9 +260,11 @@ let getListDoctorTemplate = () => {
             image_url: HOURS_OPEN,
             buttons: [
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -512,9 +516,11 @@ let getDetailViewCardiology = () => {
             image_url: IMAGE_DOCTOR1,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -524,9 +530,11 @@ let getDetailViewCardiology = () => {
             image_url: IMAGE_DOCTOR2,
             buttons: [
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -536,9 +544,11 @@ let getDetailViewCardiology = () => {
             image_url: IMAGE_DOCTOR3,
             buttons: [
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -584,9 +594,11 @@ let getDetailViewMusculoskeletal = () => {
             image_url: IMAGE_DOCTOR4,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -596,9 +608,11 @@ let getDetailViewMusculoskeletal = () => {
             image_url: IMAGE_DOCTOR5,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -609,9 +623,11 @@ let getDetailViewMusculoskeletal = () => {
             image_url: IMAGE_DOCTOR6,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -657,9 +673,11 @@ let getDetailViewEarNoseThroat = () => {
             image_url: IMAGE_DOCTOR7,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -669,9 +687,11 @@ let getDetailViewEarNoseThroat = () => {
             image_url: IMAGE_DOCTOR8,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -681,9 +701,11 @@ let getDetailViewEarNoseThroat = () => {
             image_url: IMAGE_DOCTOR9,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -730,9 +752,11 @@ let getDetailViewGastrointestinal = () => {
             image_url: IMAGE_DOCTOR10,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -743,9 +767,11 @@ let getDetailViewGastrointestinal = () => {
             image_url: IMAGE_DOCTOR11,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -755,9 +781,11 @@ let getDetailViewGastrointestinal = () => {
             image_url: IMAGE_DOCTOR12,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -804,9 +832,11 @@ let getDetailViewNeurology = () => {
             image_url: IMAGE_DOCTOR13,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -817,9 +847,11 @@ let getDetailViewNeurology = () => {
             image_url: IMAGE_DOCTOR14,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -830,9 +862,11 @@ let getDetailViewNeurology = () => {
             image_url: IMAGE_DOCTOR15,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -878,9 +912,11 @@ let getDetailViewChoRay = () => {
             image_url: IMAGE_DOCTOR7,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -891,9 +927,11 @@ let getDetailViewChoRay = () => {
             image_url: IMAGE_DOCTOR10,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -904,9 +942,11 @@ let getDetailViewChoRay = () => {
             image_url: IMAGE_DOCTOR13,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -952,9 +992,11 @@ let getDetailViewMedlatec = () => {
             image_url: IMAGE_DOCTOR8,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -965,9 +1007,11 @@ let getDetailViewMedlatec = () => {
             image_url: IMAGE_DOCTOR11,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -978,9 +1022,11 @@ let getDetailViewMedlatec = () => {
             image_url: IMAGE_DOCTOR14,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1026,9 +1072,11 @@ let getDetailViewThuCuc = () => {
             image_url: IMAGE_DOCTOR9,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1038,9 +1086,11 @@ let getDetailViewThuCuc = () => {
             image_url: IMAGE_DOCTOR12,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1051,9 +1101,11 @@ let getDetailViewThuCuc = () => {
             image_url: IMAGE_DOCTOR15,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1100,9 +1152,11 @@ let getDetailViewAnViet = () => {
             image_url: IMAGE_DOCTOR1,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1112,9 +1166,11 @@ let getDetailViewAnViet = () => {
             image_url: IMAGE_DOCTOR4,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1124,9 +1180,11 @@ let getDetailViewAnViet = () => {
             image_url: IMAGE_DOCTOR9,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1173,9 +1231,11 @@ let getDetailViewExson = () => {
             image_url: IMAGE_DOCTOR6,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1185,9 +1245,11 @@ let getDetailViewExson = () => {
             image_url: IMAGE_DOCTOR3,
             buttons: [
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1197,9 +1259,11 @@ let getDetailViewExson = () => {
             image_url: IMAGE_DOCTOR2,
             buttons: [
               {
-                type: "postback",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
                 title: "ĐẶT LỊCH KHÁM",
-                payload: "BOOKING",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
@@ -1209,9 +1273,11 @@ let getDetailViewExson = () => {
             image_url: IMAGE_DOCTOR5,
             buttons: [
               {
-                type: "postback",
-                title: "Đặt lịch khám",
-                payload: "BOOKING",
+                type: "web_url",
+                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                title: "ĐẶT LỊCH KHÁM",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
             ],
           },
