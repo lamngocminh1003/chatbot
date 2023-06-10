@@ -17,3 +17,6 @@ a:focus {
   font-weight: 600;
   font-size: 30px;
 }
+.col-12 {
+  width: 90%;
+}
