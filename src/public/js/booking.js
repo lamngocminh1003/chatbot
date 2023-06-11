@@ -88,12 +88,12 @@ function handleClickButtonReserveTable() {
       MessengerExtensions.requestCloseBrowser(
         function success() {
           // webview closed
-          callAjax();
+          callAjax(data);
         },
         function error(err) {
           // an error occurred
           console.log("MessengerExtensions.requestCloseBrowser", err);
-          callAjax();
+          callAjax(data);
           $("#customerInfo").css("display", "none");
           $("#handleError").css("display", "block");
         }
@@ -114,7 +114,7 @@ function handleClickButtonReserveTable() {
     }
   });
 }
-function callAjax() {
+function callAjax(data) {
   //send data to node.js server
   $.ajax({
     url: `${window.location.origin}/reserve-table-ajax`,
