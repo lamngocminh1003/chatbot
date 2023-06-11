@@ -88,11 +88,14 @@ function handleClickButtonReserveTable() {
       MessengerExtensions.requestCloseBrowser(
         function success() {
           // webview closed
+          callAjax();
         },
         function error(err) {
           // an error occurred
           console.log("MessengerExtensions.requestCloseBrowser", err);
-          window.top.close();
+          callAjax();
+          $("#customerInfo").css("display", "none");
+          $("#handleError").css("display", "block");
         }
       );
 
@@ -109,5 +112,19 @@ function handleClickButtonReserveTable() {
         },
       });
     }
+  });
+}
+function callAjax() {
+  //send data to node.js server
+  $.ajax({
+    url: `${window.location.origin}/reserve-table-ajax`,
+    method: "POST",
+    data: data,
+    success: function (data) {
+      console.log(data);
+    },
+    error: function (error) {
+      console.log(error);
+    },
   });
 }
