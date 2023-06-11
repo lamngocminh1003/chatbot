@@ -61,7 +61,6 @@ function validateInputFields() {
   } else {
     customerReason.removeClass("is-invalid");
   }
-
   if (customerAddress.val() === "") {
     customerAddress.addClass("is-invalid");
     return true;
@@ -92,7 +91,8 @@ function handleClickButtonReserveTable() {
         },
         function error(err) {
           // an error occurred
-          console.log(err);
+          console.log("MessengerExtensions.requestCloseBrowser", err);
+          window.top.close();
         }
       );
 
