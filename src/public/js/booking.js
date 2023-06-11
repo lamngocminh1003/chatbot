@@ -89,8 +89,6 @@ function handleClickButtonReserveTable() {
         function success() {
           // webview closed
           callAjax(data);
-          $("#customerInfo").css("display", "none");
-          $("#handleError").css("display", "block");
         },
         function error(err) {
           // an error occurred
