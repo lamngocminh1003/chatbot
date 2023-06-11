@@ -89,13 +89,15 @@ function handleClickButtonReserveTable() {
         function success() {
           // webview closed
           callAjax(data);
+          $("#customerInfo").css("display", "none");
+          $("#handleError").css("display", "block");
         },
         function error(err) {
           // an error occurred
           console.log("MessengerExtensions.requestCloseBrowser", err);
           callAjax(data);
-          $("#customerInfo").css("display", "block");
-          $("#handleError").css("display", "none");
+          $("#customerInfo").css("display", "none");
+          $("#handleError").css("display", "block");
         }
       );
 
