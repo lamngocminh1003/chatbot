@@ -94,8 +94,8 @@ function handleClickButtonReserveTable() {
           // an error occurred
           console.log("MessengerExtensions.requestCloseBrowser", err);
           callAjax(data);
-          $("#customerInfo").css("display", "none");
-          $("#handleError").css("display", "block");
+          $("#customerInfo").css("display", "block");
+          $("#handleError").css("display", "none");
         }
       );
 
