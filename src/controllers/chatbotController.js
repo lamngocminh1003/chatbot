@@ -294,11 +294,11 @@ let handlePostBooking = async (req, res) => {
     } else customerName = req.body.customerName;
     let response1 = {
       text: `---Thông tin bệnh nhận đặt lịch khám bệnh ---
-      \nCustomer Name: ${customerName}
-      \nCustomer Reason: ${req.body.customerReason}
-      \nCustomerAddress: ${req.body.customerAddress}
+      \nTên bệnh nhân: ${customerName}
+      \nLý do khám: ${req.body.customerReason}
+      \nĐịa chỉ liên hệ: ${req.body.customerAddress}
       \nEmail: ${req.body.email}
-      \nPhone: ${req.body.phoneNumber}`,
+      \nSố điện thoại: ${req.body.phoneNumber}`,
     };
     await chatbotService.callSendAPI(req.body.psid, response1);
     return res.status(200).json({
