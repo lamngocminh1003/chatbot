@@ -35,6 +35,21 @@ function validateInputFields() {
 
   let email = $("#email");
   let phoneNumber = $("#phoneNumber");
+  let customerReason = $("#customerReason");
+  let customerAddress = $("#customerAddress");
+  if (customerReason.val() === "") {
+    customerReason.addClass("is-invalid");
+    return true;
+  } else {
+    customerReason.removeClass("is-invalid");
+  }
+
+  if (customerAddress.val() === "") {
+    customerAddress.addClass("is-invalid");
+    return true;
+  } else {
+    customerAddress.removeClass("is-invalid");
+  }
 
   if (!email.val().match(EMAIL_REG)) {
     email.addClass("is-invalid");

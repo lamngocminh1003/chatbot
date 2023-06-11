@@ -289,19 +289,11 @@ let handelPostBooking = async (req, res) => {
     if (req.body.customerName === "") {
       customerName = "Empty";
     } else customerName = req.body.customerName;
-    let customerAddress = "";
-    if (req.body.customerAddress === "") {
-      customerAddress = "Empty";
-    } else customerAddress = req.body.customerAddress;
-    let customerReason = "";
-    if (req.body.customerReason === "") {
-      customerReason = "Empty";
-    } else customerReason = req.body.customerReason;
     let response1 = {
       text: `---Thông tin bệnh nhận đặt lịch khám bệnh ---
       \nCustomer Name: ${customerName}
-      \nCustomer Reason: ${customerReason}
-      \nCustomerAddress: ${customerAddress}
+      \nCustomer Reason: ${req.body.customerReason}
+      \nCustomerAddress: ${req.body.customerAddress}
       \nEmail: ${req.body.email}
       \nPhone: ${req.body.phoneNumber}`,
     };
