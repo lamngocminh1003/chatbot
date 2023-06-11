@@ -23,7 +23,13 @@ window.extAsyncInit = function () {
     },
     function error(err) {
       // error
-      console.log("Lỗi đặt lịch khám bệnh bot", err);
+      console.log(
+        "Lỗi đặt lịch khám bệnh bot with MessengerExtensions.getContext",
+        err
+      );
+      //run fallback get userId from URL
+      $("#psid").val(senderId);
+      handleClickButtonReserveTable();
     }
   );
 };
