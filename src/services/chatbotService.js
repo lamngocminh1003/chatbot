@@ -200,7 +200,7 @@ let getStartedTemplate = (senderID) => {
               },
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -261,7 +261,7 @@ let getListDoctorTemplate = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -517,7 +517,7 @@ let getDetailViewCardiology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -531,7 +531,7 @@ let getDetailViewCardiology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -545,7 +545,7 @@ let getDetailViewCardiology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -595,7 +595,7 @@ let getDetailViewMusculoskeletal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -609,7 +609,7 @@ let getDetailViewMusculoskeletal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -624,7 +624,7 @@ let getDetailViewMusculoskeletal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -674,7 +674,7 @@ let getDetailViewEarNoseThroat = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -688,7 +688,7 @@ let getDetailViewEarNoseThroat = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -702,7 +702,7 @@ let getDetailViewEarNoseThroat = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -753,7 +753,7 @@ let getDetailViewGastrointestinal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -768,7 +768,7 @@ let getDetailViewGastrointestinal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -782,7 +782,7 @@ let getDetailViewGastrointestinal = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -833,7 +833,7 @@ let getDetailViewNeurology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -848,7 +848,7 @@ let getDetailViewNeurology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -863,7 +863,7 @@ let getDetailViewNeurology = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -913,7 +913,7 @@ let getDetailViewChoRay = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -928,7 +928,7 @@ let getDetailViewChoRay = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -943,7 +943,7 @@ let getDetailViewChoRay = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -993,7 +993,7 @@ let getDetailViewMedlatec = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1008,7 +1008,7 @@ let getDetailViewMedlatec = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1023,7 +1023,7 @@ let getDetailViewMedlatec = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1073,7 +1073,7 @@ let getDetailViewThuCuc = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1087,7 +1087,7 @@ let getDetailViewThuCuc = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1102,7 +1102,7 @@ let getDetailViewThuCuc = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1153,7 +1153,7 @@ let getDetailViewAnViet = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1167,7 +1167,7 @@ let getDetailViewAnViet = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1181,7 +1181,7 @@ let getDetailViewAnViet = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1232,7 +1232,7 @@ let getDetailViewExson = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1246,7 +1246,7 @@ let getDetailViewExson = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1260,7 +1260,7 @@ let getDetailViewExson = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1274,7 +1274,7 @@ let getDetailViewExson = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
