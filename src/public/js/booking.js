@@ -43,6 +43,18 @@ function validateInputFields() {
   let phoneNumber = $("#phoneNumber");
   let customerReason = $("#customerReason");
   let customerAddress = $("#customerAddress");
+  if (!email.val().match(EMAIL_REG)) {
+    email.addClass("is-invalid");
+    return true;
+  } else {
+    email.removeClass("is-invalid");
+  }
+  if (phoneNumber.val() === "") {
+    phoneNumber.addClass("is-invalid");
+    return true;
+  } else {
+    phoneNumber.removeClass("is-invalid");
+  }
   if (customerReason.val() === "") {
     customerReason.addClass("is-invalid");
     return true;
@@ -56,21 +68,6 @@ function validateInputFields() {
   } else {
     customerAddress.removeClass("is-invalid");
   }
-
-  if (!email.val().match(EMAIL_REG)) {
-    email.addClass("is-invalid");
-    return true;
-  } else {
-    email.removeClass("is-invalid");
-  }
-
-  if (phoneNumber.val() === "") {
-    phoneNumber.addClass("is-invalid");
-    return true;
-  } else {
-    phoneNumber.removeClass("is-invalid");
-  }
-
   return false;
 }
 
