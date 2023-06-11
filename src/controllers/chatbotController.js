@@ -280,10 +280,10 @@ let setupPersistentMenu = async (req, res) => {
   );
   return res.send("setup persistent menu  succeed !");
 };
-let handelBooking = (req, res) => {
+let handleBooking = (req, res) => {
   return res.render("booking.ejs");
 };
-let handelPostBooking = async (req, res) => {
+let handlePostBooking = async (req, res) => {
   try {
     let customerName = "";
     if (req.body.customerName === "") {
@@ -314,6 +314,6 @@ module.exports = {
   getWebhook: getWebhook,
   setupProfile: setupProfile,
   setupPersistentMenu: setupPersistentMenu,
-  handelBooking: handelBooking,
-  handelPostBooking: handelPostBooking,
+  handleBooking: handleBooking,
+  handlePostBooking: handlePostBooking,
 };

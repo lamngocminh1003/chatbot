@@ -168,7 +168,7 @@ let handleGetStarted = (sender_psid) => {
       let response1 = {
         text: `Xin chào ${username} đến với đặt lịch khám bệnh trực tuyến!`,
       };
-      let response2 = getStartedTemplate();
+      let response2 = getStartedTemplate(sender_psid);
       //send text message
       await callSendAPI(sender_psid, response1);
       //send generic template message
