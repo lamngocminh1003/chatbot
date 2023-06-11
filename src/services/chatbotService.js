@@ -181,7 +181,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let getStartedTemplate = () => {
+let getStartedTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -200,7 +200,7 @@ let getStartedTemplate = () => {
               },
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -221,7 +221,7 @@ let getStartedTemplate = () => {
 let handleSendListDoctor = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getListDoctorTemplate();
+      let response1 = getListDoctorTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -229,7 +229,7 @@ let handleSendListDoctor = (sender_psid) => {
     }
   });
 };
-let getListDoctorTemplate = () => {
+let getListDoctorTemplate = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -261,7 +261,7 @@ let getListDoctorTemplate = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -290,7 +290,7 @@ let getListDoctorTemplate = () => {
 let handleSendSpecialtiesList = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getSpecialtiesListTemplate();
+      let response1 = getSpecialtiesListTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -391,7 +391,7 @@ let getSpecialtiesListTemplate = () => {
 let handleSendClinicsList = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getClinicsListTemplate();
+      let response1 = getClinicsListTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -494,7 +494,7 @@ let handleBackToDoctorsList = async (sender_psid) => {
 let handleDetailViewCardiology = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewCardiology();
+      let response1 = getDetailViewCardiology(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -502,7 +502,7 @@ let handleDetailViewCardiology = async (sender_psid) => {
     }
   });
 };
-let getDetailViewCardiology = () => {
+let getDetailViewCardiology = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -517,7 +517,7 @@ let getDetailViewCardiology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -531,7 +531,7 @@ let getDetailViewCardiology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -545,7 +545,7 @@ let getDetailViewCardiology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -573,7 +573,7 @@ let getDetailViewCardiology = () => {
 let handleDetailViewMusculoskeletal = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewMusculoskeletal();
+      let response1 = getDetailViewMusculoskeletal(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -581,7 +581,7 @@ let handleDetailViewMusculoskeletal = async (sender_psid) => {
     }
   });
 };
-let getDetailViewMusculoskeletal = () => {
+let getDetailViewMusculoskeletal = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -595,7 +595,7 @@ let getDetailViewMusculoskeletal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -609,7 +609,7 @@ let getDetailViewMusculoskeletal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -624,7 +624,7 @@ let getDetailViewMusculoskeletal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -652,7 +652,7 @@ let getDetailViewMusculoskeletal = () => {
 let handleDetailViewEarNoseThroat = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewEarNoseThroat();
+      let response1 = getDetailViewEarNoseThroat(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -660,7 +660,7 @@ let handleDetailViewEarNoseThroat = async (sender_psid) => {
     }
   });
 };
-let getDetailViewEarNoseThroat = () => {
+let getDetailViewEarNoseThroat = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -674,7 +674,7 @@ let getDetailViewEarNoseThroat = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -688,7 +688,7 @@ let getDetailViewEarNoseThroat = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -702,7 +702,7 @@ let getDetailViewEarNoseThroat = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -730,7 +730,7 @@ let getDetailViewEarNoseThroat = () => {
 let handleDetailViewGastrointestinal = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewGastrointestinal();
+      let response1 = getDetailViewGastrointestinal(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -738,7 +738,7 @@ let handleDetailViewGastrointestinal = async (sender_psid) => {
     }
   });
 };
-let getDetailViewGastrointestinal = () => {
+let getDetailViewGastrointestinal = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -753,7 +753,7 @@ let getDetailViewGastrointestinal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -768,7 +768,7 @@ let getDetailViewGastrointestinal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -782,7 +782,7 @@ let getDetailViewGastrointestinal = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -810,7 +810,7 @@ let getDetailViewGastrointestinal = () => {
 let handleDetailViewNeurology = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewNeurology();
+      let response1 = getDetailViewNeurology(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -818,7 +818,7 @@ let handleDetailViewNeurology = async (sender_psid) => {
     }
   });
 };
-let getDetailViewNeurology = () => {
+let getDetailViewNeurology = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -833,7 +833,7 @@ let getDetailViewNeurology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -848,7 +848,7 @@ let getDetailViewNeurology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -863,7 +863,7 @@ let getDetailViewNeurology = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -891,7 +891,7 @@ let getDetailViewNeurology = () => {
 let handleDetailViewChoRay = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewChoRay();
+      let response1 = getDetailViewChoRay(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -899,7 +899,7 @@ let handleDetailViewChoRay = async (sender_psid) => {
     }
   });
 };
-let getDetailViewChoRay = () => {
+let getDetailViewChoRay = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -913,7 +913,7 @@ let getDetailViewChoRay = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -928,7 +928,7 @@ let getDetailViewChoRay = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -943,7 +943,7 @@ let getDetailViewChoRay = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -971,7 +971,7 @@ let getDetailViewChoRay = () => {
 let handleDetailViewMedlatec = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewMedlatec();
+      let response1 = getDetailViewMedlatec(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -979,7 +979,7 @@ let handleDetailViewMedlatec = async (sender_psid) => {
     }
   });
 };
-let getDetailViewMedlatec = () => {
+let getDetailViewMedlatec = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -993,7 +993,7 @@ let getDetailViewMedlatec = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1008,7 +1008,7 @@ let getDetailViewMedlatec = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1023,7 +1023,7 @@ let getDetailViewMedlatec = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1051,7 +1051,7 @@ let getDetailViewMedlatec = () => {
 let handleDetailViewThuCuc = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewThuCuc();
+      let response1 = getDetailViewThuCuc(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -1059,7 +1059,7 @@ let handleDetailViewThuCuc = async (sender_psid) => {
     }
   });
 };
-let getDetailViewThuCuc = () => {
+let getDetailViewThuCuc = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -1073,7 +1073,7 @@ let getDetailViewThuCuc = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1087,7 +1087,7 @@ let getDetailViewThuCuc = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1102,7 +1102,7 @@ let getDetailViewThuCuc = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1130,7 +1130,7 @@ let getDetailViewThuCuc = () => {
 let handleDetailViewAnViet = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewAnViet();
+      let response1 = getDetailViewAnViet(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -1138,7 +1138,7 @@ let handleDetailViewAnViet = async (sender_psid) => {
     }
   });
 };
-let getDetailViewAnViet = () => {
+let getDetailViewAnViet = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -1153,7 +1153,7 @@ let getDetailViewAnViet = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1167,7 +1167,7 @@ let getDetailViewAnViet = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1181,7 +1181,7 @@ let getDetailViewAnViet = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1209,7 +1209,7 @@ let getDetailViewAnViet = () => {
 let handleDetailViewExson = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getDetailViewExson();
+      let response1 = getDetailViewExson(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
@@ -1217,7 +1217,7 @@ let handleDetailViewExson = async (sender_psid) => {
     }
   });
 };
-let getDetailViewExson = () => {
+let getDetailViewExson = (senderID) => {
   let response = {
     attachment: {
       type: "template",
@@ -1232,7 +1232,7 @@ let getDetailViewExson = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1246,7 +1246,7 @@ let getDetailViewExson = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1260,7 +1260,7 @@ let getDetailViewExson = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
@@ -1274,7 +1274,7 @@ let getDetailViewExson = () => {
             buttons: [
               {
                 type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}`,
+                url: `${process.env.URL_WEB_VIEW_BOOKING}?senderID=${senderID}`,
                 title: "ĐẶT LỊCH KHÁM",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
