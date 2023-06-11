@@ -22,9 +22,5 @@ a:focus {
 }
 .handle-error {
   display: none;
-}
-h5 {
-  display: block;
-  text-align: center;
   padding: 15px;
 }
