@@ -32,7 +32,7 @@ let writeDataToGoogleSheet = async (data) => {
   await sheet.addRow({
     "Tên Facebook": data.userName,
     Email: data.email,
-    "Số điện thoại": data.phoneNumber,
+    "Số điện thoại": `'` + data.phoneNumber,
     "Địa chỉ liên hệ": data.address,
     "Lý do khám": data.reason,
     "Thời gian": formatedDate,
