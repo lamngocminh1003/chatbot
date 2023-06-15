@@ -60,6 +60,8 @@ const IMAGE_DOCTOR14 =
   "https://cdn.bookingcare.vn/fr/w200/2020/01/03/084302-pgs-nguyen-trong-hung.jpg";
 const IMAGE_DOCTOR15 =
   "https://cdn.bookingcare.vn/fr/w200/2022/07/29/181442-6f0641e81e0ddc53851c.jpg";
+const IMAGE_WELCOME =
+  "https://media4.giphy.com/media/T9YRoIuBJchO7u8a6F/giphy.gif?cid=ecf05e47alx0japgk9ufo5i14mgt3veump6o754n4wq36c0z&ep=v1_gifs_related&rid=giphy.gif&ct=g";
 let callSendAPI = async (sender_psid, response) => {
   // Construct the message body
   let request_body = {
@@ -168,12 +170,16 @@ let handleGetStarted = (sender_psid) => {
       let response1 = {
         text: `Xin chào ${username} đến với đặt lịch khám bệnh trực tuyến!`,
       };
-      let response2 = getStartedTemplate(sender_psid);
+      // let response2 = getStartedTemplate(sender_psid);
+      let response2 = getImageStartedTemplate(sender_psid);
+      let response3 = getStartedQuickReplyTemplate(sender_psid);
+
       //send text message
       await callSendAPI(sender_psid, response1);
       //send generic template message
       await callSendAPI(sender_psid, response2);
-
+      //send a quick reply message
+      await callSendAPI(sender_psid, response3);
       resolve("done");
     } catch (error) {
       reject(error);
@@ -213,6 +219,41 @@ let getStartedTemplate = (senderID) => {
             ],
           },
         ],
+      },
+    },
+  };
+  return response;
+};
+let getStartedQuickReplyTemplate = (senderID) => {
+  let response = {
+    text: "Dưới đây là các lựa chọn của chúng tôi:",
+    quick_replies: [
+      {
+        content_type: "text",
+        title: "Danh sách bác sĩ giỏi",
+        payload: "DOCTORS_LIST",
+      },
+      {
+        content_type: "text",
+        title: "Đặt lịch khám",
+        payload: "<POSTBACK_PAYLOAD>",
+      },
+      {
+        content_type: "text",
+        title: "Hướng dẫn sử dụng Bot",
+        payload: "GUIDE_TO_USE",
+      },
+    ],
+  };
+  return response;
+};
+let getImageStartedTemplate = (senderID) => {
+  let response = {
+    attachment: {
+      type: "image",
+      payload: {
+        url: IMAGE_WELCOME,
+        is_reusable: true,
       },
     },
   };
