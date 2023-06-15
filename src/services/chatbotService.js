@@ -63,31 +63,37 @@ const IMAGE_DOCTOR15 =
 const IMAGE_WELCOME =
   "https://media4.giphy.com/media/T9YRoIuBJchO7u8a6F/giphy.gif?cid=ecf05e47alx0japgk9ufo5i14mgt3veump6o754n4wq36c0z&ep=v1_gifs_related&rid=giphy.gif&ct=g";
 let callSendAPI = async (sender_psid, response) => {
-  // Construct the message body
-  let request_body = {
-    recipient: {
-      id: sender_psid,
-    },
-    message: response,
-  };
-  await sendTypingOn(sender_psid);
-  await sendMarkReadMessage(sender_psid);
-  // Send the HTTP request to the Messenger Platform
-  request(
-    {
-      uri: "https://graph.facebook.com/v9.0/me/messages",
-      qs: { access_token: PAGE_ACCESS_TOKEN },
-      method: "POST",
-      json: request_body,
-    },
-    (err, res, body) => {
-      if (!err) {
-        console.log("message sent!");
-      } else {
-        console.error("Unable to send message:" + err);
-      }
+  return new Promise(async (resolve, reject) => {
+    try {
+      let request_body = {
+        recipient: {
+          id: sender_psid,
+        },
+        message: response,
+      };
+      await sendTypingOn(sender_psid);
+      await sendMarkReadMessage(sender_psid);
+      // Send the HTTP request to the Messenger Platform
+      request(
+        {
+          uri: "https://graph.facebook.com/v9.0/me/messages",
+          qs: { access_token: PAGE_ACCESS_TOKEN },
+          method: "POST",
+          json: request_body,
+        },
+        (err, res, body) => {
+          if (!err) {
+            resolve("message sent!");
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        }
+      );
+    } catch (error) {
+      reject(error);
     }
-  );
+  });
+  // Construct the message body
 };
 let sendTypingOn = (sender_psid) => {
   // Construct the message body
