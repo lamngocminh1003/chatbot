@@ -97,7 +97,15 @@ let postWebhook = (req, res) => {
 
 async function handleMessage(sender_psid, received_message) {
   let response;
-
+  //check message for quick reply
+  if (received_message.quick_reply && received_message.quick_reply.payload) {
+    if (received_message.quick_reply.payload === "DOCTORS_LIST") {
+      await chatbotService.handleSendListDoctor(sender_psid);
+    }
+    if (received_message.quick_reply.payload === "GUIDE_TO_USE") {
+    }
+    return;
+  }
   // Checks if the message contains text
   if (received_message.text) {
     // Create the payload for a basic text message, which

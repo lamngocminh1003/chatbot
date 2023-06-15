@@ -219,7 +219,7 @@ let getStartedTemplate = (senderID) => {
               },
               {
                 type: "postback",
-                title: "HƯỚNG DẪN SỬ DỤNG BOT",
+                title: "HDSD BOT",
                 payload: "GUIDE_TO_USE",
               },
             ],
