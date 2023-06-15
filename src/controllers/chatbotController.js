@@ -32,7 +32,7 @@ let writeDataToGoogleSheet = async (data) => {
   await sheet.addRow({
     "Tên Facebook": data.userName,
     Email: data.email,
-    "Số điện thoại": `'` + data.phoneNumber,
+    "Số điện thoại": data.phoneNumber,
     "Địa chỉ liên hệ": data.address,
     "Lý do khám": data.reason,
     "Thời gian": formatedDate,
@@ -328,7 +328,7 @@ let handlePostBooking = async (req, res) => {
     let data = {
       userName: userName,
       email: req.body.email,
-      phoneNumber: req.body.phoneNumber,
+      phoneNumber: `'${req.body.phoneNumber}`,
       address: req.body.customerAddress,
       reason: req.body.customerReason,
       customerName: req.body.customerName,
