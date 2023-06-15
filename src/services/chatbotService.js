@@ -211,13 +211,6 @@ let getStartedTemplate = (senderID) => {
                 payload: "DOCTORS_LIST",
               },
               {
-                type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_BOOKING}/${senderID}`,
-                title: "ĐẶT LỊCH KHÁM",
-                webview_height_ratio: "tall",
-                messenger_extensions: true,
-              },
-              {
                 type: "postback",
                 title: "HDSD BOT",
                 payload: "GUIDE_TO_USE",
