@@ -84,6 +84,9 @@ let callSendAPI = async (sender_psid, response) => {
           json: request_body,
         },
         (err, res, body) => {
+          console.log("------------");
+          console.log(body);
+          console.log("------------");
           if (!err) {
             resolve("message sent!");
           } else {
@@ -1350,7 +1353,7 @@ let handleGuideToUse = (sender_psid) => {
         text: `Xin chào bạn ${username}, mình là chatbot của đặt lịch khám bệnh trực tuyến Booking Care.\nĐể biết thêm thông tin sử dụng bạn vui lòng xem bên dưới nhé! 💙`,
       };
       //send a media template: video, buttons
-      let response2 = getBotMediaTemplate();
+      let response2 = getBotMediaTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       await callSendAPI(sender_psid, response2);
     } catch (error) {
