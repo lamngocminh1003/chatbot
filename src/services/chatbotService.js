@@ -1369,7 +1369,7 @@ let getBotMediaTemplate = (sender_psid) => {
         template_type: "media",
         elements: [
           {
-            media_type: "<video>",
+            media_type: "video",
             url: VIDEO_HDSD,
             buttons: [
               {
