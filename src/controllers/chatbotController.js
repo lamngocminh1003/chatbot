@@ -103,6 +103,7 @@ async function handleMessage(sender_psid, received_message) {
       await chatbotService.handleSendListDoctor(sender_psid);
     }
     if (received_message.quick_reply.payload === "GUIDE_TO_USE") {
+      await chatbotService.handleGuideToUse(sender_psid);
     }
     return;
   }
@@ -171,6 +172,9 @@ async function handlePostback(sender_psid, received_postback) {
       break;
     case "SPECIALTIES_LIST":
       await chatbotService.handleSendSpecialtiesList(sender_psid);
+      break;
+    case "GUIDE_TO_USE":
+      await chatbotService.handleGuideToUse(sender_psid);
       break;
     case "CLINICS_LIST":
       await chatbotService.handleSendClinicsList(sender_psid);

@@ -2,6 +2,8 @@ require("dotenv").config();
 import request from "request";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const VIDEO_HDSD =
+  "https://business.facebook.com/datlichkhambenhtructuyen/videos/988225235875651";
 const IMAGE_GET_STARTED =
   "https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg";
 const IMAGE_LIST_DOCTORS =
@@ -1339,6 +1341,47 @@ let getDetailViewExson = (senderID) => {
   };
   return response;
 };
+let handleGuideToUse = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      //send text message
+      let username = await getUserName(sender_psid);
+      let response1 = {
+        text: `Xin chào bạn ${username}, mình là chatbot của đặt lịch khám bệnh trực tuyến Booking Care.\nĐể biết thêm thông tin sử dụng bạn vui lòng xem bên dưới nhé! 💙`,
+      };
+      //send a media template: video, buttons
+      let response2 = getBotMediaTemplate();
+      await callSendAPI(sender_psid, response1);
+      await callSendAPI(sender_psid, response2);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+let getBotMediaTemplate = (sender_psid) => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "media",
+        elements: [
+          {
+            media_type: "<video>",
+            url: VIDEO_HDSD,
+            buttons: [
+              {
+                type: "postback",
+                title: "Danh sách bác sĩ giỏi",
+                payload: "DOCTORS_LIST",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
+};
 module.exports = {
   callSendAPI: callSendAPI,
   handleGetStarted: handleGetStarted,
@@ -1358,4 +1401,5 @@ module.exports = {
   handleDetailViewAnViet: handleDetailViewAnViet,
   handleDetailViewExson: handleDetailViewExson,
   handleDetailViewChoRay: handleDetailViewChoRay,
+  handleGuideToUse: handleGuideToUse,
 };
