@@ -1341,7 +1341,7 @@ let getDetailViewExson = (senderID) => {
   };
   return response;
 };
-let handleGuideToUse = () => {
+let handleGuideToUse = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       //send text message
