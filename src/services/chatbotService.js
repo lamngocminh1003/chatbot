@@ -1,6 +1,7 @@
 require("dotenv").config();
 import request from "request";
-
+import db from "../models/index";
+import e from "express";
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VIDEO_HDSD =
   "https://business.facebook.com/datlichkhambenhtructuyen/videos/988225235875651";
@@ -343,94 +344,51 @@ let handleSendSpecialtiesList = (sender_psid) => {
     }
   });
 };
-let getSpecialtiesListTemplate = () => {
+let getSpecialtiesListTemplate = async () => {
+  let data = await db.Product.findAll({
+    raw: false,
+  });
+  let elements = [];
+
+  if (data && data.length > 0) {
+    data.map((item) => {
+      elements.push({
+        title: item.title,
+        subtitle: item.subtitle,
+        image_url: item.image_url,
+        buttons: [
+          {
+            type: "postback",
+            title: "Xem chi tiết",
+            payload: item.payload,
+          },
+        ],
+      });
+    });
+  }
+  elements.push({
+    title: "Quay trở lại",
+    subtitle: "Quay trở lại danh sách bác sĩ",
+    image_url: IMAGE_LIST_DOCTORS,
+    buttons: [
+      {
+        type: "postback",
+        title: "QUAY TRỞ LẠI",
+        payload: "BACK_TO_LIST_DOCTORS",
+      },
+    ],
+  });
   let response = {
     attachment: {
       type: "template",
       payload: {
         template_type: "generic",
-        elements: [
-          {
-            title: "Chuyên khoa thần kinh",
-            subtitle:
-              "Sở hữu danh sách các giáo sư, bác sĩ chuyên khoa Thần kinh giỏi",
-            image_url: IMAGE_NEUROLOGY,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_NEUROLOGY",
-              },
-            ],
-          },
-          {
-            title: "Chuyên khoa tiêu hóa",
-            subtitle:
-              "Sở hữu danh sách các bác sĩ Tiêu hóa uy tín đầu ngành tại Việt Nam",
-            image_url: IMAGE_GASTROINTESTINAL,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_GASTROINTESTINAL",
-              },
-            ],
-          },
-          {
-            title: "Chuyên khoa tai mũi họng",
-            subtitle:
-              "Sở hữu danh sách các bác sĩ uy tín đầu ngành tại Việt Nam",
-            image_url: IMAGE_EAR_NOSE_THROAT,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_EAR_NOSE_THROAT",
-              },
-            ],
-          },
-          {
-            title: "Chuyên khoa cơ xương khớp",
-            subtitle:
-              "Sở hữu danh sách các bác sĩ uy tín đầu ngành Cơ Xương Khớp tại Việt Nam",
-            image_url: IMAGE_MUSCULOSKELETAL,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_MUSCULOSKELETAL",
-              },
-            ],
-          },
-          {
-            title: "Chuyên khoa tim mạch",
-            subtitle:
-              "Sở hữu danh sách các bác sĩ tim mạch uy tín đầu ngành tại Việt Nam",
-            image_url: IMAGE_CARDIOLOGY,
-            buttons: [
-              {
-                type: "postback",
-                title: "Xem chi tiết",
-                payload: "VIEW_CARDIOLOGY",
-              },
-            ],
-          },
-          {
-            title: "Quay trở lại",
-            subtitle: "Quay trở lại danh sách bác sĩ",
-            image_url: IMAGE_LIST_DOCTORS,
-            buttons: [
-              {
-                type: "postback",
-                title: "QUAY TRỞ LẠI",
-                payload: "BACK_TO_LIST_DOCTORS",
-              },
-            ],
-          },
-        ],
+        elements: [],
       },
     },
   };
+  response.attachment.payload.elements = elements;
+  console.log("check response", response.attachment.payload.elements);
   return response;
 };
 let handleSendClinicsList = (sender_psid) => {
@@ -1405,4 +1363,5 @@ module.exports = {
   handleDetailViewExson: handleDetailViewExson,
   handleDetailViewChoRay: handleDetailViewChoRay,
   handleGuideToUse: handleGuideToUse,
+  getSpecialtiesListTemplate: getSpecialtiesListTemplate,
 };

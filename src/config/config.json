@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "u7jywa175zcxmouk6imp",
+    "password": "8ndjmws7Vf3t983uOq42WEYb0bGGJL",
+    "database": "bibqripcrb7wgcnrkz2u",
+    "host": "bibqripcrb7wgcnrkz2u-postgresql.services.clever-cloud.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
