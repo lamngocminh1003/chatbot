@@ -336,7 +336,7 @@ let getListDoctorTemplate = (senderID) => {
 let handleSendSpecialtiesList = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response1 = getSpecialtiesListTemplate(sender_psid);
+      let response1 = await getSpecialtiesListTemplate(sender_psid);
       await callSendAPI(sender_psid, response1);
       resolve("done");
     } catch (error) {
